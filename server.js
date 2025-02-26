@@ -16,7 +16,13 @@ const bcrypt = require('bcrypt');
 //END_ASYNC
 
 //START_SYNC
+const hash = bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+    bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+        console.log(res, " <= res here")/*res == true or false*/
+    });/*Store hash in your db*/
+  });
 
+  
 
 
 //END_SYNC
